@@ -1,1 +1,5 @@
-export class CreatePedidoDto {}
+export class CreatePedidoDto {
+  qtdInteira!: number;
+  qtdMeia!: number;
+  valorTotal!: number;
+}

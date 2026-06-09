@@ -1,26 +1,45 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreateSalaDto } from './dto/create-sala.dto';
 import { UpdateSalaDto } from './dto/update-sala.dto';
 
 @Injectable()
 export class SalaService {
+  constructor(private prisma: PrismaService) {}
+
   create(createSalaDto: CreateSalaDto) {
-    return 'This action adds a new sala';
+    return this.prisma.sala.create({
+      data: createSalaDto,
+    });
   }
 
   findAll() {
-    return `This action returns all sala`;
+    return this.prisma.sala.findMany({
+      include: {
+        cinema: true,
+      },
+    });
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} sala`;
+    return this.prisma.sala.findUnique({
+      where: { id },
+      include: {
+        cinema: true,
+      },
+    });
   }
 
   update(id: number, updateSalaDto: UpdateSalaDto) {
-    return `This action updates a #${id} sala`;
+    return this.prisma.sala.update({
+      where: { id },
+      data: updateSalaDto,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} sala`;
+    return this.prisma.sala.delete({
+      where: { id },
+    });
   }
 }

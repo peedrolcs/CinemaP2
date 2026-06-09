@@ -1,1 +1,5 @@
-export class CreateIngressoDto {}
+export class CreateIngressoDto {
+  valorInteira!: number;
+  valorMeia!: number;
+  sessaoId!: number;
+}
