@@ -100,3 +100,176 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 =======
 # CinemaP2
 >>>>>>> 10084839375730c8c602ca376a30b9fa8a6aa52c
+
+# 🎬 CinemaP2 - Sistema de Gerenciamento de Cinema
+
+## 📖 Sobre o Projeto
+
+O CinemaP2 é uma API REST desenvolvida com NestJS, Prisma ORM e SQLite para gerenciar cinemas, filmes, salas, sessões, ingressos, pedidos e combos de lanches.
+
+O projeto foi desenvolvido como atividade acadêmica com o objetivo de aplicar conceitos de desenvolvimento backend, banco de dados relacional, ORM e arquitetura em camadas.
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+* Node.js
+* TypeScript
+* NestJS
+* Prisma ORM
+* SQLite
+* Swagger
+* Git e GitHub
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+Controller
+    ↓
+Service
+    ↓
+Prisma ORM
+    ↓
+SQLite Database
+```
+
+---
+
+## 🗄️ Modelagem do Banco de Dados
+
+### Cinema
+
+* id
+* nome
+* endereco
+
+### Sala
+
+* id
+* numero
+* capacidade
+* cinemaId
+
+### Filme
+
+* id
+* titulo
+* sinopse
+* classificacao
+* duracao
+* elenco
+* genero
+* dataInicioExibicao
+* dataFinalExibicao
+* cinemaId
+
+### Sessao
+
+* id
+* horarioExibicao
+* filmeId
+* salaId
+* cinemaId
+
+### Ingresso
+
+* id
+* valorInteira
+* valorMeia
+* sessaoId
+* pedidoId
+
+### Pedido
+
+* id
+* qtdInteira
+* qtdMeia
+* valorTotal
+
+### LancheCombo
+
+* id
+* nome
+* descricao
+* valorUnitario
+* quantidade
+* subtotal
+* pedidoId
+
+---
+
+## 🔗 Relacionamentos
+
+* Um Cinema possui várias Salas
+* Um Cinema possui vários Filmes
+* Um Cinema possui várias Sessões
+* Uma Sala possui várias Sessões
+* Um Filme possui várias Sessões
+* Uma Sessão possui vários Ingressos
+* Um Pedido pode possuir vários Ingressos
+* Um Pedido pode possuir vários Combos de Lanche
+
+---
+
+## ⚙️ Como Executar o Projeto
+
+### Instalar dependências
+
+```bash
+npm install
+```
+
+### Gerar o Prisma Client
+
+```bash
+npx prisma generate
+```
+
+### Executar migrations
+
+```bash
+npx prisma migrate dev
+```
+
+### Executar o projeto
+
+```bash
+npm run start:dev
+```
+
+---
+
+## 📚 Documentação da API
+
+Após iniciar o projeto:
+
+```text
+http://localhost:3001/api
+```
+
+A documentação Swagger estará disponível com todos os endpoints da aplicação.
+
+---
+
+## 📌 Funcionalidades
+
+* Cadastro de cinemas
+* Cadastro de filmes
+* Cadastro de salas
+* Cadastro de sessões
+* Cadastro de ingressos
+* Cadastro de pedidos
+* Cadastro de combos de lanche
+* Relacionamentos entre entidades
+* Documentação automática com Swagger
+
+---
+
+## 👨‍💻 Autor
+
+Pedro Lucas
+
+Projeto desenvolvido para fins acadêmicos utilizando NestJS, Prisma e SQLite.
+
