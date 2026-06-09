@@ -1,1 +1,4 @@
-export class CreateCinemaDto {}
+export class CreateCinemaDto {
+  nome!: string;
+  endereco!: string;
+}
